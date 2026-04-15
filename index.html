@@ -4,25 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Washington State Roleplay</title>
-  <link rel="icon" href="/wsrp.png?v=3" />
+  <link rel="icon" href="/wsrp.png?v=4" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --bg-1:#eaf4ff;
-      --bg-2:#d9ecff;
-      --bg-3:#c2e0ff;
-      --panel:rgba(255,255,255,0.64);
-      --panel-strong:rgba(255,255,255,0.78);
-      --panel-soft:rgba(255,255,255,0.48);
-      --border:rgba(69,123,214,0.13);
-      --text:#173963;
-      --muted:#55759d;
-      --soft:#7a97ba;
-      --accent:#4d91ff;
-      --accent-2:#7cb6ff;
+      --bg-1:#edf6ff;
+      --bg-2:#deefff;
+      --bg-3:#c6e2ff;
+      --panel:rgba(255,255,255,0.68);
+      --panel-strong:rgba(255,255,255,0.82);
+      --panel-soft:rgba(255,255,255,0.52);
+      --border:rgba(76,136,224,0.14);
+      --text:#173a67;
+      --muted:#5678a3;
+      --soft:#7d99bd;
+      --accent:#4b92ff;
+      --accent-2:#7ab6ff;
       --shadow:0 18px 50px rgba(41,93,173,0.14);
       --radius:24px;
     }
@@ -68,7 +68,7 @@
     }
 
     .sidebar{
-      width:308px;
+      width:310px;
       height:100%;
       padding:22px 18px;
       background:rgba(241,248,255,0.68);
@@ -82,7 +82,7 @@
       align-items:center;
       gap:14px;
       padding:10px 10px 20px;
-      border-bottom:1px solid rgba(77,145,255,0.10);
+      border-bottom:1px solid rgba(75,143,255,0.10);
       margin-bottom:12px;
     }
 
@@ -172,7 +172,7 @@
 
     .sidebar-note p{
       font-size:13px;
-      line-height:1.7;
+      line-height:1.72;
       color:var(--muted);
     }
 
@@ -366,7 +366,7 @@
     .command-box{
       margin-top:14px;
       width:100%;
-      min-height:220px;
+      min-height:380px;
       resize:vertical;
       border:1px solid rgba(77,145,255,0.12);
       background:rgba(255,255,255,0.56);
@@ -374,7 +374,7 @@
       border-radius:18px;
       padding:16px;
       font-size:14px;
-      line-height:1.75;
+      line-height:1.78;
       outline:none;
       font-family:inherit;
     }
@@ -387,7 +387,7 @@
       align-items:center;
     }
 
-    .copy-btn{
+    .copy-btn, .link-btn{
       border:none;
       border-radius:14px;
       padding:12px 16px;
@@ -397,11 +397,25 @@
       cursor:pointer;
       background:linear-gradient(135deg, var(--accent), var(--accent-2));
       box-shadow:0 12px 28px rgba(77,145,255,0.24);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
     }
 
     .copy-status{
       font-size:13px;
       color:var(--muted);
+    }
+
+    .embed-frame{
+      width:100%;
+      height:780px;
+      border:none;
+      border-radius:20px;
+      background:rgba(255,255,255,0.56);
+      box-shadow:inset 0 0 0 1px rgba(77,145,255,0.08);
+      margin-top:14px;
     }
 
     @media (max-width:1100px){
@@ -443,6 +457,10 @@
       .top-pill{
         white-space:normal;
       }
+
+      .embed-frame{
+        height:560px;
+      }
     }
   </style>
 </head>
@@ -462,19 +480,18 @@
       <div class="sidebar-label">Pages</div>
       <nav class="nav" id="nav">
         <button class="nav-btn active" data-page="home">🏠 Home</button>
-        <button class="nav-btn" data-page="overview">📘 Staff Overview</button>
-        <button class="nav-btn" data-page="commands">📣 Premade Commands</button>
-        <button class="nav-btn" data-page="usage">🧾 Command Usage</button>
-        <button class="nav-btn" data-page="expectations">🛡️ Staff Expectations</button>
+        <button class="nav-btn" data-page="handbook">📘 Staff Handbook</button>
+        <button class="nav-btn" data-page="commands">📣 Private Server Commands</button>
+        <button class="nav-btn" data-page="commandlogs">🧾 Command Logs</button>
         <button class="nav-btn" data-page="structure">🧭 Chain of Command</button>
         <button class="nav-btn" data-page="ranks">📊 Rank Structure</button>
-        <button class="nav-btn" data-page="resources">📂 Resources</button>
+        <button class="nav-btn" data-page="guidelines">🛡️ Staff Guidelines</button>
       </nav>
 
       <div class="sidebar-note">
-        <div class="sidebar-note-title">Panel Notice</div>
+        <div class="sidebar-note-title">Panel Update</div>
         <p>
-          This panel has been reworked to be cleaner, more formal, more readable, and more useful during active staffing. The goal is to make staff responses faster, more professional, and more consistent.
+          This version removes unused resource filler and replaces it with pages that are more useful for active staff operations: the handbook, formal command references, command logs, hierarchy, rank order, and staff guidance.
         </p>
       </div>
     </aside>
@@ -493,89 +510,90 @@
           <div class="hero">
             <div class="hero-title">
               <img src="wsrp.png" alt="WSRP logo">
-              <h2>Washington State Roleplay Staff Information Panel</h2>
+              <h2>Washington State Roleplay Staff Operations Panel</h2>
             </div>
             <p>
-              Welcome to the Washington State Roleplay staff information panel. This site is designed to function as a polished, formal, and organized reference system for staff members across moderation, administration, internal affairs, supervision, management, executive leadership, advisory authority, and foundation command. Rather than relying on scattered notes, improvised messages, or inconsistent wording, this panel centralizes important staff material in one location for easier use during active moderation and daily operations.
+              This site has been reworked to function as a stronger operational reference for Washington State Roleplay staff. Instead of relying on scattered information, weak formatting, or short pages with limited value, this version is intended to serve as a more polished staff information system built around practical use. It presents command material, hierarchy, expectations, and handbook access in one place with cleaner structure and more formal language.
             </p>
             <p>
-              This version has been improved to make the site itself stronger. The wording is more formal, the rank structure is fully unabbreviated, the navigation is more useful, the informational pages are longer and more complete, and the command page is designed to help staff respond with cleaner and more consistent announcements. The purpose is not merely to look better, but to function better.
+              The purpose of these site improvements is straightforward: make the panel feel more official, make the navigation more useful, and give staff a stronger reference point during active staffing. The result is a site that is easier to read, easier to use, and more reflective of an actual organized staff team rather than a basic placeholder website.
             </p>
           </div>
 
           <div class="grid">
             <article class="card half">
-              <div class="section-eyebrow">Purpose</div>
-              <h3>What this site is meant to improve</h3>
+              <div class="section-eyebrow">Site Reform</div>
+              <h3>What was improved</h3>
               <p>
-                A staff reference site should do more than hold a few copied commands. It should improve presentation, reduce inconsistency, and make it easier for staff to carry themselves with clarity. This reworked version of the site is intended to support those goals by organizing key information into clearer sections, using more formal wording, and making the panel easier to use during live staffing situations.
+                The site itself has been improved through clearer structure, better visual spacing, stronger wording, more formal page content, and tabs that are actually useful for staff. Rank names are now fully written out rather than abbreviated, the commands section has been formalized, and the handbook is now given a dedicated in-site viewing area so it feels integrated into the panel instead of treated as an afterthought.
               </p>
               <p>
-                The reforms to this site focus on readability, professionalism, and usefulness. Rather than cluttering the layout with unnecessary sections, the structure now prioritizes the pages staff are most likely to use: command references, hierarchy, expectations, and quick operational information.
+                These changes make the site more professional and more valuable as a real staff tool, which was the point of the rework.
               </p>
             </article>
 
             <article class="card half">
-              <div class="section-eyebrow">Operational value</div>
-              <h3>Why this matters for staff</h3>
+              <div class="section-eyebrow">Core Purpose</div>
+              <h3>Why this panel matters</h3>
               <p>
-                Staff teams become more effective when their communication is consistent. A clean reference system helps prevent sloppy announcements, uneven responses, and confusion over who holds which level of authority. It also helps new staff learn how the server is structured while giving experienced staff a faster operational reference.
+                A good staff site should reduce inconsistency, improve presentation, and make it easier for staff to act with confidence and clarity. That is especially important in a roleplay environment where staff messages, authority structure, and public presentation all affect how the community sees the team. A better panel makes day-to-day staffing cleaner and more efficient.
               </p>
               <p>
-                In practice, this means fewer rushed messages, more professional responses, and a staff culture that feels more stable and deliberate rather than reactive.
+                This is not just a cosmetic change. A cleaner site supports cleaner operations.
               </p>
             </article>
 
             <article class="card third">
-              <div class="section-eyebrow">Added improvements</div>
+              <div class="section-eyebrow">Main Inclusions</div>
               <div class="list">
                 <div class="item">
-                  <strong>Formalized wording</strong>
-                  <span>Content has been rewritten to sound more structured and professional.</span>
+                  <strong>Staff Handbook</strong>
+                  <span>Embedded inside the site with a direct open button.</span>
                 </div>
                 <div class="item">
-                  <strong>Unabbreviated rank names</strong>
-                  <span>The hierarchy is easier to read and more official in appearance.</span>
+                  <strong>Private Server Commands</strong>
+                  <span>Formalized and reorganized by authority level.</span>
                 </div>
                 <div class="item">
-                  <strong>More useful navigation</strong>
-                  <span>Tabs now prioritize operational staff needs instead of filler content.</span>
+                  <strong>Command Logs</strong>
+                  <span>Direct access to the listed Discord logging channels.</span>
                 </div>
               </div>
             </article>
 
             <article class="card third">
-              <div class="section-eyebrow">Use case</div>
-              <h3>When to keep this open</h3>
+              <div class="section-eyebrow">Structure</div>
               <p>
-                This site is best used while actively staffing so that moderation commands, structural references, and staff expectations are always available without requiring staff to search elsewhere.
+                Pages now prioritize real staff use rather than filler categories. Navigation is cleaner, more focused, and built around the content you actually listed.
               </p>
             </article>
 
             <article class="card third">
-              <div class="section-eyebrow">Presentation</div>
-              <h3>Visual reform</h3>
+              <div class="section-eyebrow">Style</div>
               <p>
-                The lighter blue design, softer glass panels, improved spacing, and cleaner typography were all chosen to make the site feel more intentional and less crude while still staying useful.
+                The site keeps the Washington State Roleplay look while making the panel itself cleaner, lighter, and more modern in presentation.
               </p>
             </article>
           </div>
         </section>
 
-        <section class="page" id="page-overview">
+        <section class="page" id="page-handbook">
           <div class="grid">
             <article class="card">
-              <div class="section-eyebrow">Staff Overview</div>
-              <h3>How this panel should be used</h3>
+              <div class="section-eyebrow">Staff Handbook</div>
+              <h3>Embedded handbook viewer</h3>
               <p>
-                This panel is intended to function as an operational reference site for Washington State Roleplay staff. It is not meant to replace judgment or leadership instruction, but to support them. Staff members should use this site to review command wording, understand how authority is arranged, and quickly reference the information they need during active moderation or internal coordination.
+                This page is dedicated to the staff handbook you provided. Rather than pushing it offsite without context, the document is displayed inside the website in a styled frame so it still feels like part of the panel. Staff can review the handbook here, or open the document directly in Google Docs when needed.
               </p>
-              <p>
-                The strongest staff teams are not simply those with powerful commands, but those with consistent communication, controlled presentation, and clear internal structure. A useful staff panel helps reinforce those traits by giving members a stable source of reference rather than forcing them to improvise under pressure.
-              </p>
-              <p>
-                This page in particular should be understood as the foundation for the rest of the site. The other pages do not exist as decoration. Each one supports real staff use: the command page helps with public messaging, the structure pages help with internal order, and the expectations page helps maintain quality in how staff behave and present themselves.
-              </p>
+
+              <div class="copy-actions">
+                <a class="link-btn" href="https://docs.google.com/document/d/116jrpYqQhKEsPOmJCRmuBVDCiq5JsK69bNByPH2CVO4/edit?tab=t.0" target="_blank" rel="noopener noreferrer">Open Staff Handbook</a>
+              </div>
+
+              <iframe
+                class="embed-frame"
+                src="https://docs.google.com/document/d/116jrpYqQhKEsPOmJCRmuBVDCiq5JsK69bNByPH2CVO4/preview">
+              </iframe>
             </article>
           </div>
         </section>
@@ -583,116 +601,177 @@
         <section class="page" id="page-commands">
           <div class="grid">
             <article class="card">
-              <div class="section-eyebrow">Premade Commands</div>
-              <h3>Ready-to-use announcement style messages</h3>
+              <div class="section-eyebrow">Private Server Commands</div>
+              <h3>Formal command reference</h3>
               <p>
-                These messages are written to be direct, professional, and easily usable in staff situations similar to the example you provided. The goal is to make them sound structured and helpful rather than careless or overly aggressive. You can copy the full set below and keep them available for fast use.
+                The command list below has been reorganized and rewritten in a more formal structure so it reads like a proper staff reference instead of a raw note list. It is divided by authority level and function to make it easier for staff to locate the correct command quickly.
               </p>
 
-              <textarea id="commandsBox" class="command-box" readonly>🔨 If you need assistance, you may type "!mod" in the chat and a member of our moderation team will respond as soon as possible. Thank you in advance, Washington State Roleplay Moderation Staff.
+              <textarea id="commandsBox" class="command-box" readonly>ER:LC PRIVATE SERVER COMMANDS
 
-📢 Please remain respectful toward all players and staff members. Failure to maintain respectful conduct may result in moderation action.
+OWNER / CO-OWNER COMMANDS
+These commands represent the highest level of server authority and are used for direct control over server staff permissions.
 
-🚓 Staff are currently monitoring the server. If you require assistance, please report the situation clearly in chat so it may be addressed efficiently.
+Staff Management
+:admin [player]
+Grant administrator permissions to a player.
 
-⚠️ Administrative review is currently in progress. Please remain patient while staff handle the active situation.
+:unadmin [player]
+Remove administrator permissions from a player.
 
-🛡️ Internal Affairs personnel may review staff conduct when necessary. Please ensure that all interactions remain professional and appropriate.
+Owners and Co-Owners also inherently retain access to all administrator and moderator commands.
 
-📌 If you have a question regarding a staff decision, remain calm and wait for a proper response instead of escalating the situation unnecessarily.
+ADMINISTRATOR COMMANDS
+Administrator commands are intended for management of moderators, player bans, and server-wide settings.
 
-⏳ If a moderator does not respond immediately, please remain patient. Staff may already be assisting another player or resolving a separate issue.
+Staff Control
+:mod [player]
+Grant moderator permissions to a player.
 
-📋 This is a reminder that staff decisions are expected to be followed while situations are under review. Disregarding staff direction may result in further moderation.
+:unmod [player]
+Remove moderator permissions from a player.
 
-✅ Thank you for helping us keep Washington State Roleplay organized, fair, and enjoyable for all players.
+Ban Management
+:ban [player or ID]
+Ban a player from the server.
 
-🔔 If you are experiencing an issue involving roleplay conduct, clearly state the problem in chat so staff may review it as quickly as possible.</textarea>
+:unban [player or ID]
+Remove a player’s ban from the server.
+
+:bans
+Display the current list of banned players.
+
+Server Settings
+:weather [clear / rain / fog / thunderstorm]
+Change the active server weather condition.
+
+MODERATOR COMMANDS
+Moderator commands are used for direct player moderation and roleplay control.
+
+Player Control
+:kick [player] [reason]
+Remove a player from the server with a stated reason.
+
+:jail [player]
+Place a player in jail.
+
+:unjail [player]
+Release a player from jail.
+
+:free [player]
+Alternative command used to release a jailed player.
+
+:kill [player]
+Kill the selected player.
+
+:down [player]
+Down the selected player.
+
+:respawn [player]
+Respawn the selected player.
+
+:load [player]
+Alternative respawn command.
+
+:refresh [player]
+Reset the selected player.
+
+Teleportation
+:to [player]
+Teleport to the selected player.
+
+:bring [player]
+Bring the selected player to your location.
+
+:tocar
+Teleport to your vehicle.
+
+:toatv
+Teleport to your ATV.
+
+:view [player]
+Spectate the selected player.
+
+Server Information
+:cmds
+Display the command list.
+
+:commands
+Alternative command used to display the command list.
+
+:logs
+Display command logs.
+
+:mods
+Display the current list of moderators.
+
+:admins
+Display the current list of administrators.
+
+Server Environment
+:time [number]
+Change the active server time.
+
+:startfire [building / brush / house]
+Start a fire of the selected type.
+
+:startnearfire [type]
+Start a fire near your current location.
+
+:stopfire
+Stop active fires.
+
+:stopdumpsterfire
+Stop active dumpster fires.
+
+Additional Tools
+:heal [player]
+Heal the selected player.
+
+:wanted [player]
+Mark the selected player as wanted.
+
+:pt [seconds]
+Pause the player-versus-player damage timer.
+
+COMMANDS AVAILABLE TO ALL PLAYERS
+These commands may be used by all players in private servers.
+
+!help
+Call for staff assistance.
+
+!mod
+Alert moderators that assistance is needed.
+
+:fixcar
+Repair your vehicle.</textarea>
 
               <div class="copy-actions">
-                <button id="copyCommandsBtn" class="copy-btn" type="button">Copy Premade Commands</button>
+                <button id="copyCommandsBtn" class="copy-btn" type="button">Copy Command Reference</button>
                 <div id="copyCommandsStatus" class="copy-status">Ready to copy.</div>
               </div>
             </article>
           </div>
         </section>
 
-        <section class="page" id="page-usage">
+        <section class="page" id="page-commandlogs">
           <div class="grid">
             <article class="card half">
-              <div class="section-eyebrow">Command Usage</div>
-              <h3>How premade commands should be used</h3>
+              <div class="section-eyebrow">Command Log</div>
+              <h3>General command log channel</h3>
               <p>
-                Premade commands are most useful when staff need to respond quickly without sacrificing clarity. However, they should not be spammed without thought. Staff should choose the message that best fits the situation rather than sending multiple lines simply because they are available. Controlled usage makes commands appear deliberate, while careless usage makes staff communication look repetitive and weak.
+                This button opens the Discord channel you provided for command logging. It should be used when staff need to review recorded command usage and general command-related activity.
               </p>
-              <p>
-                Staff should also avoid changing the tone of the command too drastically when sending it. The more standardized the message remains, the more familiar and official it feels to players over time.
-              </p>
+              <a class="link-btn" href="https://discord.com/channels/1407918110559699077/1484374655522570300" target="_blank" rel="noopener noreferrer">Open Command Log</a>
             </article>
 
             <article class="card half">
-              <div class="section-eyebrow">Presentation standard</div>
-              <h3>Why wording matters</h3>
+              <div class="section-eyebrow">Kick and Ban Log</div>
+              <h3>Moderation action log channel</h3>
               <p>
-                Players often judge staff quality by how staff communicate. A message that sounds rushed, immature, or overly hostile weakens authority even if the moderation itself is correct. By contrast, a clear and measured line gives the impression of control and professionalism. That is one of the core reforms built into this site: stronger wording that improves presentation without making staff sound robotic.
+                This button opens the Discord channel you provided for kick and ban logging. It should be used when staff need to review direct punitive actions or confirm whether a removal action has already been taken.
               </p>
-              <p>
-                This is especially important in large public situations where a single line may represent the entire team to dozens of players at once.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="page" id="page-expectations">
-          <div class="grid">
-            <article class="card">
-              <div class="section-eyebrow">Staff Expectations</div>
-              <h3>Professional standards for all staff members</h3>
-              <p>
-                Every member of staff in Washington State Roleplay is expected to operate with maturity, discipline, patience, and consistency. Staff authority is not only defined by rank, but by conduct. A staff member who cannot remain composed, fair, or clear in stressful situations weakens the entire perception of the staff team.
-              </p>
-              <p>
-                Staff are expected to communicate respectfully, avoid unnecessary escalation, follow higher instruction when appropriate, and remain aware that every public interaction contributes to the server’s atmosphere. Good staff presence should reduce disorder rather than add to it.
-              </p>
-              <p>
-                Professionalism also means understanding restraint. Not every issue needs the same tone, and not every player interaction should be treated as a confrontation. Good judgment means knowing when to be firm, when to be patient, and when to defer to higher staff levels.
-              </p>
-            </article>
-
-            <article class="card half">
-              <div class="section-eyebrow">Expected traits</div>
-              <div class="list">
-                <div class="item">
-                  <strong>Consistency</strong>
-                  <span>Staff should apply their role with steady standards rather than mood-based decision making.</span>
-                </div>
-                <div class="item">
-                  <strong>Fairness</strong>
-                  <span>Moderation should be based on conduct and context, not favoritism or irritation.</span>
-                </div>
-                <div class="item">
-                  <strong>Clarity</strong>
-                  <span>Instructions, warnings, and responses should be understandable and direct.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="card half">
-              <div class="section-eyebrow">Avoid</div>
-              <div class="list">
-                <div class="item">
-                  <strong>Sloppy responses</strong>
-                  <span>Messages that are rushed or unclear make staff look unprepared.</span>
-                </div>
-                <div class="item">
-                  <strong>Unnecessary hostility</strong>
-                  <span>Authority is stronger when it is controlled, not emotional.</span>
-                </div>
-                <div class="item">
-                  <strong>Rank misuse</strong>
-                  <span>Higher authority should mean stronger judgment, not louder behavior.</span>
-                </div>
-              </div>
+              <a class="link-btn" href="https://discord.com/channels/1407918110559699077/1484374690884620499" target="_blank" rel="noopener noreferrer">Open Kick and Ban Log</a>
             </article>
           </div>
         </section>
@@ -703,10 +782,7 @@
               <div class="section-eyebrow">Chain of Command</div>
               <h3>Staff hierarchy and oversight structure</h3>
               <p>
-                Washington State Roleplay is organized across multiple branches, each representing a higher level of trust, responsibility, and oversight. This structure is meant to keep staffing orderly, maintain accountability, and ensure that authority is distributed with purpose rather than confusion.
-              </p>
-              <p>
-                Lower staff ranks are expected to focus on learning, active moderation, and operational consistency. Higher ranks are expected to provide structure, correction, review, and long-term direction. The hierarchy below is therefore more than a list of titles; it represents the progression of responsibility through the staff system.
+                Washington State Roleplay is organized across multiple branches, each representing a higher level of trust, responsibility, and oversight. This structure exists to preserve order, keep responsibilities clear, and ensure that authority scales upward in a deliberate and understandable way.
               </p>
             </article>
 
@@ -738,65 +814,65 @@
           <div class="grid">
             <article class="card">
               <div class="section-eyebrow">Rank Structure</div>
-              <h3>Full rank order with unabbreviated names</h3>
+              <h3>Full unabbreviated rank order</h3>
               <p>
-                This page lists the rank structure exactly in unabbreviated form so that it reads more cleanly and formally. This reform makes the site look more polished and easier to understand for both new and existing staff.
+                The rank structure below is written in full to make the site look more official and easier to read. This is one of the central reforms made to the panel itself.
               </p>
             </article>
 
             <article class="card half">
               <div class="section-eyebrow">Moderation</div>
               <div class="list">
-                <div class="item"><strong>Trial Moderator</strong><span>Entry moderation rank focused on learning conduct and response standards.</span></div>
-                <div class="item"><strong>Junior Moderator</strong><span>Developing moderation rank with increasing staffing responsibility.</span></div>
-                <div class="item"><strong>Moderator</strong><span>Core moderation role responsible for routine staffing and server assistance.</span></div>
-                <div class="item"><strong>Senior Moderator</strong><span>Experienced moderation role with stronger judgment and leadership presence.</span></div>
+                <div class="item"><strong>Trial Moderator</strong><span>Entry moderation rank focused on learning conduct and staff response standards.</span></div>
+                <div class="item"><strong>Junior Moderator</strong><span>Developing moderation rank with increasing responsibility.</span></div>
+                <div class="item"><strong>Moderator</strong><span>Standard moderation authority responsible for routine staffing and assistance.</span></div>
+                <div class="item"><strong>Senior Moderator</strong><span>Experienced moderation authority with stronger judgment and leadership presence.</span></div>
               </div>
             </article>
 
             <article class="card half">
               <div class="section-eyebrow">Administration</div>
               <div class="list">
-                <div class="item"><strong>Trial Administrator</strong><span>Beginning administrative rank focused on learning elevated responsibilities.</span></div>
-                <div class="item"><strong>Junior Administrator</strong><span>Early-stage administrative role with growing oversight.</span></div>
-                <div class="item"><strong>Administrator</strong><span>Standard administrative authority within the staff structure.</span></div>
-                <div class="item"><strong>Senior Administrator</strong><span>Higher administrative rank expected to show strong consistency and control.</span></div>
+                <div class="item"><strong>Trial Administrator</strong><span>Introductory administrative rank.</span></div>
+                <div class="item"><strong>Junior Administrator</strong><span>Developing administrative role.</span></div>
+                <div class="item"><strong>Administrator</strong><span>Core administrative authority.</span></div>
+                <div class="item"><strong>Senior Administrator</strong><span>Higher administrative authority with increased oversight.</span></div>
               </div>
             </article>
 
             <article class="card half">
               <div class="section-eyebrow">Internal Affairs</div>
               <div class="list">
-                <div class="item"><strong>Trial Internal Affairs</strong><span>Introductory Internal Affairs rank.</span></div>
-                <div class="item"><strong>Junior Internal Affairs</strong><span>Developing Internal Affairs role with more involvement in staff review.</span></div>
-                <div class="item"><strong>Internal Affairs Trainer</strong><span>Responsible for assisting in the preparation of lower Internal Affairs personnel.</span></div>
-                <div class="item"><strong>Internal Affairs</strong><span>Standard Internal Affairs authority for internal review.</span></div>
-                <div class="item"><strong>Internal Affairs Supervisor</strong><span>Senior oversight role for the Internal Affairs branch.</span></div>
-                <div class="item"><strong>Head of Internal Affairs</strong><span>Top Internal Affairs authority.</span></div>
+                <div class="item"><strong>Trial Internal Affairs</strong><span>Introductory Internal Affairs role.</span></div>
+                <div class="item"><strong>Junior Internal Affairs</strong><span>Developing Internal Affairs role.</span></div>
+                <div class="item"><strong>Internal Affairs Trainer</strong><span>Responsible for guiding lower Internal Affairs personnel.</span></div>
+                <div class="item"><strong>Internal Affairs</strong><span>Standard Internal Affairs authority.</span></div>
+                <div class="item"><strong>Internal Affairs Supervisor</strong><span>Senior oversight role within Internal Affairs.</span></div>
+                <div class="item"><strong>Head of Internal Affairs</strong><span>Highest Internal Affairs authority.</span></div>
               </div>
             </article>
 
             <article class="card half">
               <div class="section-eyebrow">Supervision and Management</div>
               <div class="list">
-                <div class="item"><strong>Staff Supervisor</strong><span>First rank of Staff High Rank, focused on oversight of staff behavior and reliability.</span></div>
+                <div class="item"><strong>Staff Supervisor</strong><span>First Staff High Rank position focused on staff oversight and reliability.</span></div>
                 <div class="item"><strong>Trial Management</strong><span>Introductory management authority.</span></div>
-                <div class="item"><strong>Junior Management</strong><span>Developing management rank with stronger coordination duties.</span></div>
+                <div class="item"><strong>Junior Management</strong><span>Developing management role.</span></div>
                 <div class="item"><strong>Management</strong><span>Standard management authority.</span></div>
-                <div class="item"><strong>Senior Management</strong><span>Higher management rank responsible for stronger organizational control.</span></div>
-                <div class="item"><strong>Head Management</strong><span>Highest management authority.</span></div>
+                <div class="item"><strong>Senior Management</strong><span>Higher management authority.</span></div>
+                <div class="item"><strong>Head Management</strong><span>Top management role.</span></div>
               </div>
             </article>
 
             <article class="card half">
               <div class="section-eyebrow">Boards</div>
               <div class="list">
-                <div class="item"><strong>Trial Executive</strong><span>Introductory executive rank within the Board of Executives.</span></div>
+                <div class="item"><strong>Trial Executive</strong><span>Introductory executive role within the Board of Executives.</span></div>
                 <div class="item"><strong>Executive</strong><span>Established executive authority.</span></div>
                 <div class="item"><strong>Staff Overseer</strong><span>Board of Overseers authority with high-level staff oversight.</span></div>
                 <div class="item"><strong>Assistant Director</strong><span>Board of Directors authority with major structural responsibility.</span></div>
                 <div class="item"><strong>Deputy Director</strong><span>Senior directorial authority.</span></div>
-                <div class="item"><strong>Director</strong><span>Top Director-level authority within the board structure.</span></div>
+                <div class="item"><strong>Director</strong><span>Top Director-level authority.</span></div>
               </div>
             </article>
 
@@ -804,41 +880,43 @@
               <div class="section-eyebrow">Advisory and Foundation</div>
               <div class="list">
                 <div class="item"><strong>Advisor</strong><span>Advisory authority focused on higher-level guidance.</span></div>
-                <div class="item"><strong>Assistant Founder</strong><span>Senior foundation-level authority supporting overall leadership.</span></div>
-                <div class="item"><strong>Co-Founder</strong><span>Top-tier foundational authority with major responsibility.</span></div>
+                <div class="item"><strong>Assistant Founder</strong><span>Senior foundation-level authority supporting leadership.</span></div>
+                <div class="item"><strong>Co-Founder</strong><span>Top-tier foundational authority.</span></div>
                 <div class="item"><strong>Founder</strong><span>Highest foundational authority within Washington State Roleplay.</span></div>
               </div>
             </article>
           </div>
         </section>
 
-        <section class="page" id="page-resources">
+        <section class="page" id="page-guidelines">
           <div class="grid">
             <article class="card">
-              <div class="section-eyebrow">Resources</div>
-              <h3>Useful operational references</h3>
+              <div class="section-eyebrow">Staff Guidelines</div>
+              <h3>Operational and presentation standards</h3>
               <p>
-                This page exists to give the site more practical value instead of making it feel like a static information sheet. It can hold links, handbooks, staff forms, punishment references, or future tools as the staff system expands.
+                Staff are expected to conduct themselves with control, fairness, and clarity. Authority is not only defined by rank, but by behavior. A strong staff team is one that communicates clearly, acts consistently, and avoids making moderation appear careless or emotional.
               </p>
               <p>
-                For now, this section serves as a placeholder resource hub and a reminder that the site has been reworked with future functionality in mind. It is structured to be easily expandable later.
+                Staff messaging should therefore remain professional, direct, and readable. Commands should be used with judgment rather than spammed carelessly. Public communication should reduce confusion rather than create it. These guidelines are intended to reinforce those expectations and support a more polished staff culture across the server.
               </p>
             </article>
 
             <article class="card half">
-              <div class="section-eyebrow">Recommended additions later</div>
+              <div class="section-eyebrow">Expected traits</div>
               <div class="list">
-                <div class="item"><strong>Staff handbook link</strong><span>Add a link to a formal handbook when available.</span></div>
-                <div class="item"><strong>Punishment matrix</strong><span>Add a detailed moderation punishment guide if you want the site to work more like a moderation utility.</span></div>
-                <div class="item"><strong>Internal reports</strong><span>Add staff report forms, logs, or review links.</span></div>
+                <div class="item"><strong>Consistency</strong><span>Staff should apply their responsibilities steadily rather than reacting unpredictably.</span></div>
+                <div class="item"><strong>Fairness</strong><span>Actions should be based on conduct and context, not emotion.</span></div>
+                <div class="item"><strong>Clarity</strong><span>Instructions and public responses should be understandable and direct.</span></div>
               </div>
             </article>
 
             <article class="card half">
-              <div class="section-eyebrow">Why this was added</div>
-              <p>
-                This is one of the site improvements you asked for. Instead of wasting navigation space on filler, the site now includes a useful expansion page that can later become a real operations hub. It improves the long-term usefulness of the site without cluttering it.
-              </p>
+              <div class="section-eyebrow">Avoid</div>
+              <div class="list">
+                <div class="item"><strong>Sloppy communication</strong><span>Messy or rushed wording makes staff appear unprepared.</span></div>
+                <div class="item"><strong>Unnecessary hostility</strong><span>Authority appears stronger when it is measured and controlled.</span></div>
+                <div class="item"><strong>Improper command usage</strong><span>Commands should be used with purpose, not thrown out carelessly.</span></div>
+              </div>
             </article>
           </div>
         </section>
@@ -859,21 +937,17 @@
         title: "Washington State Roleplay",
         sub: "Official staff information and command reference panel."
       },
-      overview: {
-        title: "Staff Overview",
-        sub: "Purpose, use, and value of this staff panel."
+      handbook: {
+        title: "Staff Handbook",
+        sub: "Embedded staff handbook with direct document access."
       },
       commands: {
-        title: "Premade Commands",
-        sub: "Ready-to-send announcement style staff responses."
+        title: "Private Server Commands",
+        sub: "Formal command reference organized by authority level."
       },
-      usage: {
-        title: "Command Usage",
-        sub: "How premade commands should be used effectively."
-      },
-      expectations: {
-        title: "Staff Expectations",
-        sub: "Professional standards for all staff members."
+      commandlogs: {
+        title: "Command Logs",
+        sub: "Direct access to the listed Discord logging channels."
       },
       structure: {
         title: "Chain of Command",
@@ -883,9 +957,9 @@
         title: "Rank Structure",
         sub: "Complete unabbreviated rank order for Washington State Roleplay."
       },
-      resources: {
-        title: "Resources",
-        sub: "Expandable reference space for future staff tools and materials."
+      guidelines: {
+        title: "Staff Guidelines",
+        sub: "Operational and presentation standards for staff members."
       }
     };
 
@@ -912,11 +986,11 @@
     async function copyCommands(){
       try{
         await navigator.clipboard.writeText(commandsBox.value);
-        copyCommandsStatus.textContent = "Premade commands copied.";
+        copyCommandsStatus.textContent = "Command reference copied.";
       }catch(error){
         commandsBox.select();
         commandsBox.setSelectionRange(0, commandsBox.value.length);
-        copyCommandsStatus.textContent = "Press Ctrl+C to copy the selected commands.";
+        copyCommandsStatus.textContent = "Press Ctrl+C to copy the selected command reference.";
       }
     }
 
